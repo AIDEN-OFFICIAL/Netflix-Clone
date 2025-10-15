@@ -31,27 +31,28 @@ const Home = () => {
     <div className='home'>
       <Navbar onNavClick={handleNavScroll} />
       <div className='hero relative'>
-        <img src={hero_banner} alt='' className='banner-img w-full h-auto' />
+        <img src={hero_banner} alt='' className='banner-img  w-full h-auto  object-cover' />
         <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/100"></div>
-        <div className="hero-caption absolute bottom-0 sm:pl-[4%] md:pl-18 w-full top-49 px-4 sm:px-0">
-          <img src={hero_title} alt='' className='caption-img sm:w-[35%] md:w-[90%] max-w-[420px] mb-7 mx-auto sm:mx-0' />
-          <p className='max-w-175 text-sm mb-5 text-center sm:text-left mx-auto sm:mx-0'>
+        <div className="hero-caption absolute bottom-0 sm:top-48 sm:pl-[4%] md:pl-18 w-full top-20 px-4 sm:px-0">
+          {/* <img src={hero_title} alt='' className='caption-img sm:w-[35%] md:w-[90%] max-w-[420px] mb-7 mx-auto sm:mx-0' /> */}
+          <img src={hero_title} alt=''   className='caption-img max-w-[420px] mb-1 md:mb-7 mx-1  sm:mx-0 sm:mb-2  w-50 sm:w-[35%] md:w-[90%]' />
+          <p className='max-w-175 sm:text-sm text-[10px] mb-5 text-left mx-auto sm:mx-0'>
             Discovering his ties to a secret ancient order, a young man living in modern Istanbul <br />embarks on an epic adventure to save the city.
           </p>
-          <div className="hero_btns flex flex-col sm:flex-row text-black gap-3 mb-12 h-10 items-center sm:items-start">
-            <button className='btn-play bg-white px-5 py-2 inline-flex items-center gap-3 font-[500] cursor-pointer rounded hover:bg-[#ffffffbf]'>
-              <img src={play_icon} alt='' className='w-6' />Play
+          <div className="hero_btns flex flex-row  text-black gap-3 mb-12 h-2 sm:h-10 items-center sm:items-start">
+            <button className='btn-play bg-white sm:px-5 sm:py-2 px-2 inline-flex items-center gap-3 font-[500] cursor-pointer rounded hover:bg-[#ffffffbf]'>
+              <img src={play_icon} alt='' className='w-3 sm:w-6' />Play
             </button>
-            <button className='btn-more text-white bg-[#6d6d6eb3] px-5 py-2 inline-flex items-center gap-3 font-[500] cursor-pointer rounded hover:bg-[#6d6d6e66]'>
+            <button className='btn-more text-white bg-[#6d6d6eb3] sm:px-5 sm:py-2 px-2 inline-flex items-center gap-3 font-[500] cursor-pointer rounded hover:bg-[#6d6d6e66]'>
               <img src={more_info_icon} className='w-6' alt='' /> More Info
             </button>
           </div>
-          <div className="hidden lg:block py-6" ref={popularRef}>
+          <div className="hidden lg:block " ref={popularRef}>
             <Titlecards title='Popular on Netflix' category={'popular'} />
           </div>
         </div>
       </div>
-      <div className="more-cards pl-4 sm:pl-18">
+      <div className="more-cards pl-4 md:pl-18 ">
         <div ref={blockbusterRef}>
           <Titlecards title='Blockbuster Movies' category={'top_rated'} />
         </div>

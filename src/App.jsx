@@ -12,7 +12,7 @@ import { useSign } from "../context/signContext";
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { signedIn, setSignedIn } = useSign();
+  const { setSignedIn } = useSign();
 useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (user) => {
     if (user) {

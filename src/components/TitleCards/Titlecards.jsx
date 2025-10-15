@@ -39,7 +39,7 @@ const options = {
     };
   }, [category]);
   return (
-    <div className='titlecards mt-13 mb-8'>
+    <div className='titlecards mt-7  sm:mt-13 sm:mb-8'>
       <h2 className='mb-2 font-bold'>{ title}</h2>
       
       <div className='card-list flex gap-3 overflow-x-scroll no-scrollbar' ref={cardsRef}>
@@ -49,7 +49,7 @@ const options = {
             className='card relative flex-shrink-0 cursor-pointer'
             onClick={() => handleCardClick(card.id)}
           >
-            <img src={'https://image.tmdb.org/t/p/w500/' + card.poster_path} alt={card.original_title} className='card_img cursor-pointer rounded w-60 h-35  object-cover' />
+            <img src={'https://image.tmdb.org/t/p/w500/' + card.poster_path} alt={card.original_title} className='card_img cursor-pointer rounded sm:w-60 sm:h-35 w-50 h-27 object-cover' />
             <p className='card_name  absolute bottom-2 right-2 '>{card.original_title}</p>
             </div>
         ))}
