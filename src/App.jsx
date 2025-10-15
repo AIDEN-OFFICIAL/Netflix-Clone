@@ -17,7 +17,7 @@ useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (user) => {
     if (user) {
       setSignedIn(true);
-      if (location.pathname === '/login' || location.pathname === '/') {
+      if (location.pathname === '/login' || location.pathname === '/') {        
         navigate('/home');
       }
     } else {
@@ -37,7 +37,8 @@ useEffect(() => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        {signedIn ? <Route path="/login" element={<Home />} /> : <Route path="/login" element={<Login />} />}
+        {/* can change the path below to only the path of login withou conditions */}
+        <Route path="/login" element={<Logiitch mn />} />}
         <Route path="/Player/:id" element={<Player />} />
       </Routes>
     </div>

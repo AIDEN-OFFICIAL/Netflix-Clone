@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import './Login.css'
 import logo from '../../assets/logo.png'
-import banner from '../../../public/background_banner.jpg'
+import banner from '../../assets/background_banner.jpg'
 import { login, signup } from '../../../firebase'
 import spinner from '../../assets/netflix_spinner.gif'
 import { useSign } from '../../../context/signContext'
@@ -24,7 +24,15 @@ const Login = () => {
     try {
       if (signState === 'Sign In') {
         let logged = await login(email, password)
-        if (logged) setSignedIn(true)
+        if (logged) {
+          setSignedIn(true)
+        } else {
+          setSignedIn(false)
+          //loading lag
+          setTimeout(() => {
+            setLoading(false)
+          },1000)
+        }
       } else if (signState === 'Sign Up') {
         let signed = await signup(name, email, password)
         console.log(signed)
@@ -58,7 +66,7 @@ const Login = () => {
     )
   }
    return (
-     <div className='login h-full  py-5 px-[8%]' style={{ backgroundImage: `linear-gradient(#0000007e,#0000007e),url(${banner})` }}>
+     <div className='login h-full  py-18 px-[8%]' style={{ backgroundImage: `linear-gradient(#0000007e,#0000007e),url(${banner})` }}>
       <img src={logo} className='w-38 ' />
       <div className='login-form w-full  max-w-113 bg-[rgba(0,0,0,0.75)] rounded p-15 m-auto '>
         <h1 className='text-3xl font-[500] mb-7'>{signState}</h1>

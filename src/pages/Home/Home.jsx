@@ -31,7 +31,7 @@ const Home = () => {
               <img src={more_info_icon} className='w-6' alt='' /> More Info
             </button>
           </div>
-          <div className="hidden lg:block">
+          <div className="hidden lg:block py-6">
             <Titlecards title='Popular on Netflix' category={'popular'} />
           </div>
         </div>
