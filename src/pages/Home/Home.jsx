@@ -36,10 +36,10 @@ const Home = () => {
         <div className="hero-caption absolute bottom-0 sm:top-48 sm:pl-[4%] md:pl-18 w-full top-20 px-4 sm:px-0">
           {/* <img src={hero_title} alt='' className='caption-img sm:w-[35%] md:w-[90%] max-w-[420px] mb-7 mx-auto sm:mx-0' /> */}
           <img src={hero_title} alt=''   className='caption-img max-w-[420px] mb-1 md:mb-7 mx-1  sm:mx-0 sm:mb-2  w-50 sm:w-[35%] md:w-[90%]' />
-          <p className='max-w-175 sm:text-sm text-[10px] mb-5 text-left mx-auto sm:mx-0'>
+          <p className='hidden sm:block max-w-175 sm:text-sm text-[10px] mb-5 text-left mx-auto sm:mx-0'>
             Discovering his ties to a secret ancient order, a young man living in modern Istanbul <br />embarks on an epic adventure to save the city.
           </p>
-          <div className="hero_btns flex flex-row  text-black gap-3 mb-12 h-2 sm:h-10 items-center sm:items-start">
+          <div className="hero_btns flex flex-row  text-black gap-3 mb-12 h-10 sm:h-10 items-center sm:items-start">
             <button className='btn-play bg-white sm:px-5 sm:py-2 px-2 inline-flex items-center gap-3 font-[500] cursor-pointer rounded hover:bg-[#ffffffbf]'>
               <img src={play_icon} alt='' className='w-3 sm:w-6' />Play
             </button>
