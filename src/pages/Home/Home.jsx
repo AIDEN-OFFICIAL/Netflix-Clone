@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import hero_banner from '/hero_banner.jpg'
 // import hero from '/background_banner.jpg'
 import play_icon from '/play_icon.png'
@@ -11,10 +11,25 @@ import Footer from '../../components/Footer/Footer'
 import { signOut } from 'firebase/auth'
 signOut
 const Home = () => {
-   
+  // Create refs for each section
+  const popularRef = useRef(null);
+  const blockbusterRef = useRef(null);
+  const onlyOnNetflixRef = useRef(null);
+  const upcomingRef = useRef(null);
+  const topPicsRef = useRef(null);
+
+  // Function to handle scroll
+  const handleNavScroll = (section) => {
+    if (section === 'popular' && popularRef.current) popularRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (section === 'blockbuster' && blockbusterRef.current) blockbusterRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (section === 'onlyOnNetflix' && onlyOnNetflixRef.current) onlyOnNetflixRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (section === 'upcoming' && upcomingRef.current) upcomingRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (section === 'topPics' && topPicsRef.current) topPicsRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className='home'>
-      <Navbar />
+      <Navbar onNavClick={handleNavScroll} />
       <div className='hero relative'>
         <img src={hero_banner} alt='' className='banner-img w-full h-auto' />
         <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/100"></div>
@@ -31,16 +46,24 @@ const Home = () => {
               <img src={more_info_icon} className='w-6' alt='' /> More Info
             </button>
           </div>
-          <div className="hidden lg:block py-6">
+          <div className="hidden lg:block py-6" ref={popularRef}>
             <Titlecards title='Popular on Netflix' category={'popular'} />
           </div>
         </div>
       </div>
       <div className="more-cards pl-4 sm:pl-18">
-        <Titlecards title='Blockbuster Movies' category={'top_rated'} />
-        <Titlecards title='Only on Netflix' category={'popular'} />
-        <Titlecards title='Upcoming' category={'upcoming'} />
-        <Titlecards title='Top Pics for You' category={'now_playing'} />
+        <div ref={blockbusterRef}>
+          <Titlecards title='Blockbuster Movies' category={'top_rated'} />
+        </div>
+        <div ref={onlyOnNetflixRef}>
+          <Titlecards title='Only on Netflix' category={'popular'} />
+        </div>
+        <div ref={upcomingRef}>
+          <Titlecards title='Upcoming' category={'upcoming'} />
+        </div>
+        <div ref={topPicsRef}>
+          <Titlecards title='Top Pics for You' category={'now_playing'} />
+        </div>
       </div>
       <Footer />
     </div>

@@ -6,7 +6,7 @@ import profile_icon from '../../assets/profile_img.png'
 import caret_icon from '../../assets/caret_icon.svg'
 import { logout } from '../../../firebase'
 
-const Navbar = () => {
+const Navbar = ({ onNavClick }) => {
   const navRef = useRef();
   useEffect(() => {
     const handleScroll = () => {
@@ -26,12 +26,12 @@ const Navbar = () => {
       <div className='flex items-center gap-12'>
         <img src={logo} className='w-28 ' alt='Netflix Logo' />
         <ul className='hidden md:flex gap-5'>
-          <li className='hover:text-gray-400    M00 cursor-pointer'>Home</li>
-          <li className='hover:text-gray-400 cursor-pointer'>TV Shows</li>
-          <li className='hover:text-gray-400 cursor-pointer'>Movies</li>
-          <li className='hover:text-gray-400 cursor-pointer'>New & Popular</li>
-          <li className='hover:text-gray-400 cursor-pointer'>My List</li>
-          <li className='hover:text-gray-400 cursor-pointer'>Browse by languages</li>
+          <li onClick={() => onNavClick('blockbuster')} className='hover:text-gray-400    M00 cursor-pointer'>Home</li>
+          <li onClick={() => onNavClick('popular')} className='hover:text-gray-400 cursor-pointer'>TV Shows</li>
+          <li onClick={() => onNavClick('upcoming')} className='hover:text-gray-400 cursor-pointer'>Movies</li>
+          <li onClick={() => onNavClick('onlyOnNetflix')} className='hover:text-gray-400 cursor-pointer'>New & Popular</li>
+          <li onClick={() => onNavClick('topPics')} className='hover:text-gray-400 cursor-pointer'>My List</li>
+          <li onClick={() => onNavClick('popular')} className='hover:text-gray-400 cursor-pointer'>Browse by languages</li>
         </ul>
       </div>
       <div className='flex items-center sm:gap-3 md:gap-5'>

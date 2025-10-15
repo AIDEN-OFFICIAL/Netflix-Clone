@@ -5,7 +5,7 @@ import Player from "./pages/Player/Player";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import { useEffect } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import { useSign } from "../context/signContext";
 
 
@@ -38,7 +38,7 @@ useEffect(() => {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         {/* can change the path below to only the path of login withou conditions */}
-        <Route path="/login" element={<Logiitch mn />} />}
+        <Route path="/login" element={<Login/>} />
         <Route path="/Player/:id" element={<Player />} />
       </Routes>
     </div>

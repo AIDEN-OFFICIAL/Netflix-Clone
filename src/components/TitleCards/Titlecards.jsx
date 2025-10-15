@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // import cards_data from '../../../public/cards/Cards_data'
 const Titlecards = ({title,category}) => {
   const cardsRef = useRef();
+  const navigate = useNavigate();
   const [apiData,setApiData] = useState([]);
 const options = {
   method: 'GET',
@@ -11,7 +12,10 @@ const options = {
     accept: 'application/json',
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3N2FiYTUyOGQzYjFmOTcwYTI4ZmQyNWMyMGQwMTVhNSIsIm5iZiI6MTc0NDY0MjM5My4zNjksInN1YiI6IjY3ZmQyMTU5NjFiMWM0YmIzMjk5MzU2ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RwO2fkoz92YAJRq1ShnQZ-wG0JPt8WoWUqWrTmAdO_g'
   }
-};
+  };
+  const handleCardClick = (id) => {
+    navigate(`/player/${id}`);
+  };
 
 
   useEffect(() => {
@@ -40,10 +44,14 @@ const options = {
       
       <div className='card-list flex gap-3 overflow-x-scroll no-scrollbar' ref={cardsRef}>
         {apiData.map((card, index) => (
-          <Link to={`/player/${card.id}`} key={index} className='card relative flex-shrink-0 '>
-            <img src={'https://image.tmdb.org/t/p/w500/'+card.poster_path} alt={card.original_title} className='card_img cursor-pointer rounded w-60 h-35  object-cover' />
+          <div 
+            key={index} 
+            className='card relative flex-shrink-0 cursor-pointer'
+            onClick={() => handleCardClick(card.id)}
+          >
+            <img src={'https://image.tmdb.org/t/p/w500/' + card.poster_path} alt={card.original_title} className='card_img cursor-pointer rounded w-60 h-35  object-cover' />
             <p className='card_name  absolute bottom-2 right-2 '>{card.original_title}</p>
-          </Link>
+            </div>
         ))}
       </div>
     </div>

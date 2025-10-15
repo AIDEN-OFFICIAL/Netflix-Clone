@@ -6,7 +6,7 @@ import {
     signInWithEmailAndPassword,
     signOut
 } from 'firebase/auth'
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
 import {
     addDoc,
     collection,
@@ -27,7 +27,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db= getFirestore(app)
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 
 const login = async (email,password)=> {
     try {
