@@ -39,7 +39,7 @@ const Home = () => {
           <p className='hidden sm:block max-w-175 sm:text-sm text-[10px] mb-5 text-left mx-auto sm:mx-0'>
             Discovering his ties to a secret ancient order, a young man living in modern Istanbul <br />embarks on an epic adventure to save the city.
           </p>
-          <div className="hero_btns flex flex-row  text-black gap-3 mb-12 h-10 sm:h-10 items-center sm:items-start">
+          <div className="hero_btns flex flex-row  text-black gap-3 mb-12 h-15 sm:h-10 items-center sm:items-start">
             <button className='btn-play bg-white sm:px-5 sm:py-2 px-2 inline-flex items-center gap-3 font-[500] cursor-pointer rounded hover:bg-[#ffffffbf]'>
               <img src={play_icon} alt='' className='w-3 sm:w-6' />Play
             </button>
